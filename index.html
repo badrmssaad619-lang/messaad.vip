@@ -1,41 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MESSAAD</title>
+
   <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
     body{
-      background:black;
+      background:#050505;
       color:white;
-      font-family:Arial;
+      overflow-x:hidden;
+    }
+
+    .bg{
+      position:fixed;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at center,#3a2a00 0%,#050505 70%);
+      z-index:-1;
+    }
+
+    header{
+      padding:20px 40px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:bold;
+      color:#ffd700;
+      text-shadow:0 0 20px #ffd700;
+    }
+
+    nav{
+      display:flex;
+      gap:20px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#ffd700;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
       text-align:center;
-      padding-top:100px;
+      padding:40px 20px;
     }
-    h1{
-      color:gold;
-      font-size:60px;
+
+    .hero h1{
+      font-size:90px;
+      color:#ffd700;
+      text-shadow:0 0 30px #ffd700;
+      margin-bottom:20px;
     }
-    p{
-      color:#ccc;
-      font-size:20px;
+
+    .hero p{
+      font-size:24px;
+      color:#ddd;
+      margin-bottom:30px;
     }
-    button{
-      background:gold;
-      border:none;
-      padding:15px 30px;
-      font-size:18px;
-      border-radius:10px;
-      cursor:pointer;
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      background:#ffd700;
+      color:black;
+      text-decoration:none;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+      box-shadow:0 0 20px #ffd700;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    .coins{
+      display:flex;
+      gap:40px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:60px;
+    }
+
+    .coins img{
+      width:320px;
+      border-radius:20px;
+      box-shadow:0 0 30px rgba(255,215,0,0.5);
+      transition:0.4s;
+    }
+
+    .coins img:hover{
+      transform:translateY(-10px) scale(1.03);
+    }
+
+    .socials{
+      margin-top:50px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    .socials a{
+      text-decoration:none;
+      padding:14px 25px;
+      border:1px solid #ffd700;
+      border-radius:12px;
+      color:#ffd700;
+      transition:0.3s;
+    }
+
+    .socials a:hover{
+      background:#ffd700;
+      color:black;
+    }
+
+    footer{
+      padding:40px;
+      text-align:center;
+      color:#777;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:55px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .coins img{
+        width:90%;
+      }
+
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<h1>MESSAAD</h1>
-<p>Luxury Crypto Ecosystem</p>
+<div class="bg"></div>
 
-<button>Buy Token</button>
+<header>
+  <div class="logo">MESSAAD</div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#coin">Coin</a>
+    <a href="#social">Social</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <h1>MESSAAD</h1>
+
+  <p>Luxury Crypto Ecosystem</p>
+
+  <a class="btn"
+  href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump"
+  target="_blank">
+  BUY TOKEN
+  </a>
+
+  <div class="coins" id="coin">
+
+    <img src="front.png" alt="MESSAAD FRONT">
+
+    <img src="back.png" alt="MESSAAD BACK">
+
+  </div>
+
+  <div class="socials" id="social">
+
+    <a href="https://www.instagram.com/messaad.fun?igsh=bHNoa205cHN3aXli" target="_blank">
+      Instagram
+    </a>
+
+    <a href="https://x.com/Mess3ad" target="_blank">
+      X / Twitter
+    </a>
+
+    <a href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump" target="_blank">
+      Pump.fun
+    </a>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 MESSAAD — All rights reserved.
+</footer>
 
 </body>
 </html>
