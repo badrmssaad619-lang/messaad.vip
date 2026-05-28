@@ -1,227 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MESSAAD</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+<title>MESSAAD</title>
 
-    body{
-      background:#050505;
-      color:white;
-      overflow-x:hidden;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    .bg{
-      position:fixed;
-      width:100%;
-      height:100%;
-      background:
-      radial-gradient(circle at center,#3a2a00 0%,#050505 70%);
-      z-index:-1;
-    }
+<style>
 
-    header{
-      padding:20px 40px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      backdrop-filter:blur(10px);
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+}
 
-    .logo{
-      font-size:32px;
-      font-weight:bold;
-      color:#ffd700;
-      text-shadow:0 0 20px #ffd700;
-    }
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
 
-    nav{
-      display:flex;
-      gap:20px;
-    }
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 40%);
+z-index:-1;
+animation:pulse 4s infinite;
+}
 
-    nav a{
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-    }
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
 
-    nav a:hover{
-      color:#ffd700;
-    }
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 10%;
+position:fixed;
+width:100%;
+top:0;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
+z-index:999;
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      text-align:center;
-      padding:40px 20px;
-    }
+.logo{
+font-size:32px;
+font-weight:700;
+color:#ffd700;
+text-shadow:0 0 20px #ffd700;
+}
 
-    .hero h1{
-      font-size:90px;
-      color:#ffd700;
-      text-shadow:0 0 30px #ffd700;
-      margin-bottom:20px;
-    }
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:0.3s;
+}
 
-    .hero p{
-      font-size:24px;
-      color:#ddd;
-      margin-bottom:30px;
-    }
+nav a:hover{
+color:#ffd700;
+}
 
-    .btn{
-      display:inline-block;
-      padding:15px 35px;
-      background:#ffd700;
-      color:black;
-      text-decoration:none;
-      border-radius:12px;
-      font-weight:bold;
-      transition:0.3s;
-      box-shadow:0 0 20px #ffd700;
-    }
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:0 10%;
+gap:60px;
+flex-wrap:wrap;
+}
 
-    .btn:hover{
-      transform:scale(1.05);
-    }
+.hero-text{
+max-width:500px;
+}
 
-    .coins{
-      display:flex;
-      gap:40px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:60px;
-    }
+.hero-text h1{
+font-size:70px;
+color:#ffd700;
+text-shadow:0 0 25px #ffd700;
+margin-bottom:20px;
+}
 
-    .coins img{
-      width:320px;
-      border-radius:20px;
-      box-shadow:0 0 30px rgba(255,215,0,0.5);
-      transition:0.4s;
-    }
+.hero-text p{
+font-size:20px;
+color:#ccc;
+line-height:1.7;
+margin-bottom:30px;
+}
 
-    .coins img:hover{
-      transform:translateY(-10px) scale(1.03);
-    }
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#ffd700;
+color:black;
+font-weight:bold;
+border-radius:40px;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 0 25px #ffd700;
+}
 
-    .socials{
-      margin-top:50px;
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
+.btn:hover{
+transform:scale(1.08);
+}
 
-    .socials a{
-      text-decoration:none;
-      padding:14px 25px;
-      border:1px solid #ffd700;
-      border-radius:12px;
-      color:#ffd700;
-      transition:0.3s;
-    }
+.coin{
+width:420px;
+animation:float 4s ease-in-out infinite;
+filter:drop-shadow(0 0 40px gold);
+}
 
-    .socials a:hover{
-      background:#ffd700;
-      color:black;
-    }
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+}
 
-    footer{
-      padding:40px;
-      text-align:center;
-      color:#777;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
+section{
+padding:120px 10%;
+}
 
-    @media(max-width:768px){
+.title{
+font-size:45px;
+color:#ffd700;
+margin-bottom:50px;
+text-align:center;
+text-shadow:0 0 20px gold;
+}
 
-      .hero h1{
-        font-size:55px;
-      }
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:50px;
+align-items:center;
+}
 
-      .hero p{
-        font-size:18px;
-      }
+.about img{
+width:100%;
+border-radius:20px;
+box-shadow:0 0 40px rgba(255,215,0,0.4);
+}
 
-      .coins img{
-        width:90%;
-      }
+.about-text p{
+color:#ccc;
+line-height:1.9;
+font-size:18px;
+}
 
-      header{
-        flex-direction:column;
-        gap:15px;
-      }
-    }
-  </style>
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+margin-top:60px;
+}
+
+.card{
+background:#111;
+padding:35px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,215,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(255,215,0,0.3);
+}
+
+.card h3{
+font-size:35px;
+color:#ffd700;
+margin-bottom:10px;
+}
+
+.card p{
+color:#bbb;
+}
+
+.socials{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+.socials a{
+padding:15px 30px;
+border:1px solid gold;
+border-radius:40px;
+text-decoration:none;
+color:#ffd700;
+transition:0.3s;
+}
+
+.socials a:hover{
+background:#ffd700;
+color:black;
+box-shadow:0 0 20px gold;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#777;
+border-top:1px solid rgba(255,255,255,0.1);
+}
+
+@media(max-width:900px){
+
+.hero-text h1{
+font-size:50px;
+}
+
+.coin{
+width:300px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-<div class="bg"></div>
+<nav>
 
-<header>
-  <div class="logo">MESSAAD</div>
+<div class="logo">MESSAAD</div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#coin">Coin</a>
-    <a href="#social">Social</a>
-  </nav>
-</header>
+<div>
+<a href="#about">About</a>
+<a href="#tokenomics">Tokenomics</a>
+<a href="#community">Community</a>
+</div>
+
+</nav>
 
 <section class="hero">
 
-  <h1>MESSAAD</h1>
+<div class="hero-text">
 
-  <p>Luxury Crypto Ecosystem</p>
+<h1>MESSAAD</h1>
 
-  <a class="btn"
-  href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump"
-  target="_blank">
-  BUY TOKEN
-  </a>
+<p>
+Luxury Crypto Ecosystem powered by community, vision and future innovation.
+</p>
 
-  <div class="coins" id="coin">
+<a class="btn" href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump" target="_blank">
+Buy Token
+</a>
 
-    <img src="front.png" alt="MESSAAD FRONT">
+</div>
 
-    <img src="back.png" alt="MESSAAD BACK">
+<img src="coin-front.png" class="coin">
 
-  </div>
+</section>
 
-  <div class="socials" id="social">
+<section id="about">
 
-    <a href="https://www.instagram.com/messaad.fun?igsh=bHNoa205cHN3aXli" target="_blank">
-      Instagram
-    </a>
+<h2 class="title">About MESSAAD</h2>
 
-    <a href="https://x.com/Mess3ad" target="_blank">
-      X / Twitter
-    </a>
+<div class="about">
 
-    <a href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump" target="_blank">
-      Pump.fun
-    </a>
+<img src="coin-back.png">
 
-  </div>
+<div class="about-text">
+
+<p>
+MESSAAD is a premium digital asset project combining luxury branding,
+strong community energy and long-term crypto vision.
+Built for the future of decentralized finance with style and innovation.
+</p>
+
+<p style="margin-top:20px;">
+The ecosystem focuses on growth, visibility and creating a powerful identity in Web3.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="tokenomics">
+
+<h2 class="title">Tokenomics</h2>
+
+<div class="stats">
+
+<div class="card">
+<h3>1B</h3>
+<p>Total Supply</p>
+</div>
+
+<div class="card">
+<h3>0%</h3>
+<p>Tax</p>
+</div>
+
+<div class="card">
+<h3>100%</h3>
+<p>Community Driven</p>
+</div>
+
+<div class="card">
+<h3>Burned</h3>
+<p>Liquidity Locked</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="community">
+
+<h2 class="title">Join Community</h2>
+
+<div class="socials">
+
+<a href="https://x.com/Mess3ad" target="_blank">
+Twitter / X
+</a>
+
+<a href="https://www.instagram.com/messaad.fun?igsh=bHNoa205cHN3aXli" target="_blank">
+Instagram
+</a>
+
+<a href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump" target="_blank">
+Pump.fun
+</a>
+
+</div>
 
 </section>
 
 <footer>
-  © 2026 MESSAAD — All rights reserved.
+© 2025 MESSAAD — All Rights Reserved
 </footer>
 
 </body>
