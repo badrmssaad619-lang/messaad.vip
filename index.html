@@ -1,355 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MESSAAD</title>
 
-<title>MESSAAD</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    body{
+      background:url('back.png.jpeg') center/cover no-repeat fixed;
+      color:white;
+      overflow-x:hidden;
+    }
 
-<style>
+    .overlay{
+      background:rgba(0,0,0,0.75);
+      min-height:100vh;
+      width:100%;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:'Poppins',sans-serif;
-}
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:25px 60px;
+      border-bottom:1px solid rgba(255,215,0,0.2);
+      backdrop-filter:blur(10px);
+    }
 
-body{
-background:#050505;
-color:white;
-overflow-x:hidden;
-}
+    .logo{
+      font-size:40px;
+      font-weight:bold;
+      color:gold;
+      text-shadow:0 0 20px gold;
+    }
 
-body::before{
-content:'';
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at center, rgba(255,215,0,0.15), transparent 40%);
-z-index:-1;
-animation:pulse 4s infinite;
-}
+    .menu{
+      display:flex;
+      gap:30px;
+    }
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.1);}
-100%{transform:scale(1);}
-}
+    .menu a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      font-weight:bold;
+    }
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 10%;
-position:fixed;
-width:100%;
-top:0;
-background:rgba(0,0,0,0.5);
-backdrop-filter:blur(10px);
-z-index:999;
-}
+    .menu a:hover{
+      color:gold;
+    }
 
-.logo{
-font-size:32px;
-font-weight:700;
-color:#ffd700;
-text-shadow:0 0 20px #ffd700;
-}
+    .buy-btn{
+      background:gold;
+      color:black;
+      padding:12px 28px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      box-shadow:0 0 20px gold;
+      transition:0.3s;
+    }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:0.3s;
-}
+    .buy-btn:hover{
+      transform:scale(1.05);
+    }
 
-nav a:hover{
-color:#ffd700;
-}
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:80px;
+      flex-wrap:wrap;
+    }
 
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:0 10%;
-gap:60px;
-flex-wrap:wrap;
-}
+    .hero-text{
+      max-width:600px;
+    }
 
-.hero-text{
-max-width:500px;
-}
+    .hero-text h1{
+      font-size:90px;
+      color:gold;
+      text-shadow:0 0 30px gold;
+      margin-bottom:20px;
+    }
 
-.hero-text h1{
-font-size:70px;
-color:#ffd700;
-text-shadow:0 0 25px #ffd700;
-margin-bottom:20px;
-}
+    .hero-text p{
+      font-size:24px;
+      line-height:1.7;
+      color:#ddd;
+      margin-bottom:30px;
+    }
 
-.hero-text p{
-font-size:20px;
-color:#ccc;
-line-height:1.7;
-margin-bottom:30px;
-}
+    .buttons{
+      display:flex;
+      gap:20px;
+      margin-bottom:40px;
+    }
 
-.btn{
-display:inline-block;
-padding:15px 35px;
-background:#ffd700;
-color:black;
-font-weight:bold;
-border-radius:40px;
-text-decoration:none;
-transition:0.3s;
-box-shadow:0 0 25px #ffd700;
-}
+    .buttons a{
+      text-decoration:none;
+      padding:15px 35px;
+      border-radius:12px;
+      font-weight:bold;
+      transition:0.3s;
+    }
 
-.btn:hover{
-transform:scale(1.08);
-}
+    .primary{
+      background:gold;
+      color:black;
+      box-shadow:0 0 25px gold;
+    }
 
-.coin{
-width:420px;
-animation:float 4s ease-in-out infinite;
-filter:drop-shadow(0 0 40px gold);
-}
+    .secondary{
+      border:2px solid gold;
+      color:gold;
+    }
 
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
-100%{transform:translateY(0);}
-}
+    .primary:hover,
+    .secondary:hover{
+      transform:translateY(-5px);
+    }
 
-section{
-padding:120px 10%;
-}
+    .socials{
+      display:flex;
+      gap:20px;
+      margin-top:20px;
+    }
 
-.title{
-font-size:45px;
-color:#ffd700;
-margin-bottom:50px;
-text-align:center;
-text-shadow:0 0 20px gold;
-}
+    .socials a{
+      color:white;
+      text-decoration:none;
+      border:1px solid gold;
+      padding:12px 20px;
+      border-radius:10px;
+      transition:0.3s;
+    }
 
-.about{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:50px;
-align-items:center;
-}
+    .socials a:hover{
+      background:gold;
+      color:black;
+    }
 
-.about img{
-width:100%;
-border-radius:20px;
-box-shadow:0 0 40px rgba(255,215,0,0.4);
-}
+    .coin{
+      width:500px;
+      animation:float 4s ease-in-out infinite;
+      filter:drop-shadow(0 0 40px gold);
+    }
 
-.about-text p{
-color:#ccc;
-line-height:1.9;
-font-size:18px;
-}
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-20px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
 
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-margin-top:60px;
-}
+    .stats{
+      width:90%;
+      margin:auto;
+      margin-top:40px;
+      background:rgba(0,0,0,0.7);
+      border:1px solid rgba(255,215,0,0.3);
+      border-radius:20px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      padding:40px;
+      gap:30px;
+      text-align:center;
+      backdrop-filter:blur(10px);
+    }
 
-.card{
-background:#111;
-padding:35px;
-border-radius:20px;
-text-align:center;
-border:1px solid rgba(255,215,0,0.2);
-transition:0.3s;
-}
+    .stat h2{
+      color:gold;
+      font-size:40px;
+      margin-bottom:10px;
+    }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(255,215,0,0.3);
-}
+    .stat p{
+      color:#ddd;
+      font-size:18px;
+    }
 
-.card h3{
-font-size:35px;
-color:#ffd700;
-margin-bottom:10px;
-}
+    .about{
+      padding:100px 60px;
+      text-align:center;
+    }
 
-.card p{
-color:#bbb;
-}
+    .about h2{
+      font-size:60px;
+      color:gold;
+      margin-bottom:30px;
+      text-shadow:0 0 20px gold;
+    }
 
-.socials{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:40px;
-flex-wrap:wrap;
-}
+    .about p{
+      max-width:900px;
+      margin:auto;
+      font-size:22px;
+      line-height:1.8;
+      color:#ddd;
+    }
 
-.socials a{
-padding:15px 30px;
-border:1px solid gold;
-border-radius:40px;
-text-decoration:none;
-color:#ffd700;
-transition:0.3s;
-}
+    footer{
+      text-align:center;
+      padding:40px;
+      border-top:1px solid rgba(255,215,0,0.2);
+      color:#aaa;
+      margin-top:60px;
+    }
 
-.socials a:hover{
-background:#ffd700;
-color:black;
-box-shadow:0 0 20px gold;
-}
+    @media(max-width:900px){
 
-footer{
-text-align:center;
-padding:40px;
-color:#777;
-border-top:1px solid rgba(255,255,255,0.1);
-}
+      .hero{
+        flex-direction:column;
+        text-align:center;
+      }
 
-@media(max-width:900px){
+      .hero-text h1{
+        font-size:60px;
+      }
 
-.hero-text h1{
-font-size:50px;
-}
+      .coin{
+        width:300px;
+        margin-top:40px;
+      }
 
-.coin{
-width:300px;
-}
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
 
-}
+      .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
 
-</style>
+    }
+
+  </style>
 </head>
 
 <body>
 
-<nav>
+  <div class="overlay">
 
-<div class="logo">MESSAAD</div>
+    <nav>
 
-<div>
-<a href="#about">About</a>
-<a href="#tokenomics">Tokenomics</a>
-<a href="#community">Community</a>
-</div>
+      <div class="logo">
+        MESSAAD
+      </div>
 
-</nav>
+      <div class="menu">
+        <a href="#">HOME</a>
+        <a href="#">ABOUT</a>
+        <a href="#">TOKENOMICS</a>
+        <a href="#">ROADMAP</a>
+        <a href="#">COMMUNITY</a>
+      </div>
 
-<section class="hero">
+      <a class="buy-btn"
+      href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump"
+      target="_blank">
+      BUY TOKEN
+      </a>
 
-<div class="hero-text">
+    </nav>
 
-<h1>MESSAAD</h1>
+    <section class="hero">
 
-<p>
-Luxury Crypto Ecosystem powered by community, vision and future innovation.
-</p>
+      <div class="hero-text">
 
-<a class="btn" href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump" target="_blank">
-Buy Token
-</a>
+        <h1>MESSAAD</h1>
 
-</div>
+        <p>
+          Luxury Crypto Ecosystem powered by community,
+          vision and innovation.
+        </p>
 
-<img src="coin-front.png" class="coin">
+        <div class="buttons">
 
-</section>
+          <a class="primary"
+          href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump"
+          target="_blank">
+          BUY TOKEN
+          </a>
 
-<section id="about">
+          <a class="secondary"
+          href="https://x.com/Mess3ad"
+          target="_blank">
+          VIEW CHART
+          </a>
 
-<h2 class="title">About MESSAAD</h2>
+        </div>
 
-<div class="about">
+        <div class="socials">
 
-<img src="coin-back.png">
+          <a href="https://x.com/Mess3ad" target="_blank">
+            X / Twitter
+          </a>
 
-<div class="about-text">
+          <a href="https://www.instagram.com/messaad.fun?igsh=bHNoa205cHN3aXli" target="_blank">
+            Instagram
+          </a>
 
-<p>
-MESSAAD is a premium digital asset project combining luxury branding,
-strong community energy and long-term crypto vision.
-Built for the future of decentralized finance with style and innovation.
-</p>
+        </div>
 
-<p style="margin-top:20px;">
-The ecosystem focuses on growth, visibility and creating a powerful identity in Web3.
-</p>
+      </div>
 
-</div>
+      <img src="front.png.jpeg" class="coin">
 
-</div>
+    </section>
 
-</section>
+    <section class="stats">
 
-<section id="tokenomics">
+      <div class="stat">
+        <h2>0%</h2>
+        <p>BUY / SELL TAX</p>
+      </div>
 
-<h2 class="title">Tokenomics</h2>
+      <div class="stat">
+        <h2>100%</h2>
+        <p>COMMUNITY DRIVEN</p>
+      </div>
 
-<div class="stats">
+      <div class="stat">
+        <h2>1B</h2>
+        <p>TOTAL SUPPLY</p>
+      </div>
 
-<div class="card">
-<h3>1B</h3>
-<p>Total Supply</p>
-</div>
+      <div class="stat">
+        <h2>LOCKED</h2>
+        <p>LIQUIDITY</p>
+      </div>
 
-<div class="card">
-<h3>0%</h3>
-<p>Tax</p>
-</div>
+    </section>
 
-<div class="card">
-<h3>100%</h3>
-<p>Community Driven</p>
-</div>
+    <section class="about">
 
-<div class="card">
-<h3>Burned</h3>
-<p>Liquidity Locked</p>
-</div>
+      <h2>ABOUT MESSAAD</h2>
 
-</div>
+      <p>
+        MESSAAD is more than a meme token.
+        It is a premium digital ecosystem combining
+        luxury branding, strong community,
+        and futuristic crypto innovation.
+      </p>
 
-</section>
+    </section>
 
-<section id="community">
+    <footer>
+      © 2025 MESSAAD — All Rights Reserved
+    </footer>
 
-<h2 class="title">Join Community</h2>
-
-<div class="socials">
-
-<a href="https://x.com/Mess3ad" target="_blank">
-Twitter / X
-</a>
-
-<a href="https://www.instagram.com/messaad.fun?igsh=bHNoa205cHN3aXli" target="_blank">
-Instagram
-</a>
-
-<a href="https://pump.fun/coin/FZe6D4QkMYXW1sXehtwo7LKjfo94KQaSQa1S1PFVpump" target="_blank">
-Pump.fun
-</a>
-
-</div>
-
-</section>
-
-<footer>
-© 2025 MESSAAD — All Rights Reserved
-</footer>
+  </div>
 
 </body>
 </html>
