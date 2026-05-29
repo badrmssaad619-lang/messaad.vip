@@ -14,7 +14,8 @@
     }
 
     body{
-      background:url('coin-back.png') center/cover no-repeat fixed;
+     background:url('coin-back.png') center center / cover no-repeat;
+background-attachment:scroll;;
       color:white;
       overflow-x:hidden;
     }
@@ -252,6 +253,16 @@
       }
 
     }
+}
+
+@media(max-width:900px){
+
+  body{
+    background-position:center;
+    background-size:cover;
+  }
+
+}
 
   </style>
 </head>
