@@ -30,21 +30,21 @@ background-attachment:scroll;;
       width:100%;
     }
 
-  nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 40px;
-  background:transparent;
-  border-bottom:none;
-  backdrop-filter:none;
-  position:fixed;
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:rgba(0,0,0,0.4);
+border-bottom:none;
+backdrop-filter:blur(8px);
+
+position:fixed;
 top:0;
 left:0;
 width:100%;
-z-index:1000;  
+z-index:1000;
 }
-
     .logo{
       font-size:40px;
       font-weight:bold;
@@ -88,6 +88,7 @@ z-index:1000;
       justify-content:space-between;
       align-items:center;
       padding:80px;
+      padding-top:160px;
       flex-wrap:wrap;
     }
 
